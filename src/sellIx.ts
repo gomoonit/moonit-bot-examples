@@ -23,7 +23,7 @@ export const sellIx = async (): Promise<void> => {
   });
 
   const token = moonshot.Token({
-    mintAddress: '9ThH8ayxFCFZqssoZmodgvtbTiBmMoLWUqQhRAP89Y97',
+    mintAddress: '4wKEi259LBmuxNdEKxETiyoE87eLPaSjmyPrB2dvmoon',
   });
 
   const curvePos = await token.getCurvePosition();

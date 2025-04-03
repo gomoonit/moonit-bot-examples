@@ -25,7 +25,7 @@ export const buyIx = async (): Promise<void> => {
 
   const token = await moonshot
     .Token({
-      mintAddress: '9ThH8ayxFCFZqssoZmodgvtbTiBmMoLWUqQhRAP89Y97',
+      mintAddress: '4wKEi259LBmuxNdEKxETiyoE87eLPaSjmyPrB2dvmoon',
     })
     .preload();
 

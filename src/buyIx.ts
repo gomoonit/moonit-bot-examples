@@ -1,4 +1,4 @@
-import { Environment, FixedSide, Moonshot } from '@wen-moon-ser/moonshot-sdk';
+import { Environment, FixedSide, Moonit } from '@moonit/sdk';
 import {
   ComputeBudgetProgram,
   Connection,
@@ -15,7 +15,7 @@ export const buyIx = async (): Promise<void> => {
 
   const connection = new Connection(rpcUrl);
 
-  const moonshot = new Moonshot({
+  const moonit = new Moonit({
     rpcUrl,
     environment: Environment.DEVNET,
     chainOptions: {
@@ -23,7 +23,7 @@ export const buyIx = async (): Promise<void> => {
     },
   });
 
-  const token = await moonshot
+  const token = await moonit
     .Token({
       mintAddress: '4wKEi259LBmuxNdEKxETiyoE87eLPaSjmyPrB2dvmoon',
     })

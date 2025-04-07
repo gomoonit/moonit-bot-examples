@@ -8,8 +8,8 @@ import {
 } from '@solana/web3.js';
 import testWallet from '../test-wallet.json';
 
-export const buyIx = async (): Promise<void> => {
-  console.log('--- Buying token example ---');
+export const buyFlatCurveTokenIx = async (): Promise<void> => {
+  console.log('--- Buying flat curve token example ---');
 
   const rpcUrl = 'https://api.devnet.solana.com';
 
@@ -25,7 +25,7 @@ export const buyIx = async (): Promise<void> => {
 
   const token = await moonit
     .Token({
-      mintAddress: '4wKEi259LBmuxNdEKxETiyoE87eLPaSjmyPrB2dvmoon',
+      mintAddress: '25qC7a6yMZMYtK99Qd4pwpM6VwjC4NgDum7YrjX3moon',
     })
     .preload();
 

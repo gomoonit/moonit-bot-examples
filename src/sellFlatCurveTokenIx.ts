@@ -8,9 +8,8 @@ import {
 } from '@solana/web3.js';
 import testWallet from '../test-wallet.json';
 
-export const buyIx = async (): Promise<void> => {
-  console.log('--- Buying token example ---');
-
+export const sellFlatCurveTokenIx = async (): Promise<void> => {
+  console.log('--- Selling flat curve token example ---');
   const rpcUrl = 'https://api.devnet.solana.com';
 
   const connection = new Connection(rpcUrl);
@@ -23,11 +22,9 @@ export const buyIx = async (): Promise<void> => {
     },
   });
 
-  const token = await moonit
-    .Token({
-      mintAddress: '4wKEi259LBmuxNdEKxETiyoE87eLPaSjmyPrB2dvmoon',
-    })
-    .preload();
+  const token = moonit.Token({
+    mintAddress: '25qC7a6yMZMYtK99Qd4pwpM6VwjC4NgDum7YrjX3moon',
+  });
 
   const curvePos = await token.getCurvePosition();
   console.log('Current position of the curve: ', curvePos); // Prints the current curve position
@@ -39,10 +36,9 @@ export const buyIx = async (): Promise<void> => {
   const tokenAmount = 10000n * 1000000000n; // Buy 10k tokens
 
   // Buy example
-  const collateralAmount = token.getCollateralAmountByTokensSync({
+  const collateralAmount = await token.getCollateralAmountByTokens({
     tokenAmount,
-    tradeDirection: 'BUY',
-    curvePosition: curvePos,
+    tradeDirection: 'SELL',
   });
 
   const { ixs } = await token.prepareIxs({
@@ -50,8 +46,8 @@ export const buyIx = async (): Promise<void> => {
     creatorPK: creator.publicKey.toBase58(),
     tokenAmount,
     collateralAmount,
-    tradeDirection: 'BUY',
-    fixedSide: FixedSide.OUT, // This means you will get exactly the token amount and slippage is applied to collateral amount
+    tradeDirection: 'SELL',
+    fixedSide: FixedSide.IN, // This means you will pay exactly the token amount slippage is applied to collateral amount
   });
 
   const priorityIx = ComputeBudgetProgram.setComputeUnitPrice({
@@ -74,5 +70,5 @@ export const buyIx = async (): Promise<void> => {
     preflightCommitment: 'confirmed',
   });
 
-  console.log('Buy Transaction Hash:', txHash);
+  console.log('Sell Transaction Hash:', txHash);
 };

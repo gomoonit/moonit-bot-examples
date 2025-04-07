@@ -1,5 +1,5 @@
 {
-  "name": "@wen-moon-ser/moonshot-bot-examples",
+  "name": "@moonit/bot-examples",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
     "format": "prettier --write 'src/**/*.{js,ts,json,md}'",
     "start": "yarn build & node dist/src/index.js"
   },
-  "repository": "git@github.com:wen-moon-ser/moonshot-bot-examples.git",
-  "author": "",
+  "repository": "git@github.com:gomoonit/moonit-bot-examples.git",
+  "author": "https://t.me/+857VprHCIgpjZjRk",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.12",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@solana/web3.js": "^1.94.0",
-    "@wen-moon-ser/moonshot-sdk": "4.1.2"
+    "@moonit/sdk": "1.0.0"
   },
   "eslintConfig": {
     "root": true,

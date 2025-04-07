@@ -1,1 +1,1 @@
-> Moonshot bot example
+> Moonit bot example

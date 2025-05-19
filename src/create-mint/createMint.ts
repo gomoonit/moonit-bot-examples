@@ -36,6 +36,7 @@ export const createMint = async (): Promise<void> => {
     links: [{ url: 'https://x.com', label: 'x handle' }],
     banner: img,
     tokenAmount: '42000000000',
+    vanityExtension: 'moon', // this is optional
   });
 
   const deserializedTransaction =
